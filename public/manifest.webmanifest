@@ -1,0 +1,21 @@
+{
+  "name": "بيت القهوة",
+  "short_name": "بيت القهوة",
+  "description": "قهوة على أصولها من قلب شبرا",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAF8F5",
+  "theme_color": "#2E1B0E",
+  "icons": [
+    {
+      "src": "/1793128790034.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

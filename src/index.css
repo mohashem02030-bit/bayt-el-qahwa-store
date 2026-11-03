@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream-50 text-espresso-800 font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-gold-300 text-espresso-900;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-gold-400 to-gold-500 px-6 py-3 font-bold text-espresso-900 shadow-gold transition-all duration-300 hover:from-gold-300 hover:to-gold-400 hover:shadow-warm-lg active:scale-95;
+  }
+  .btn-espresso {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-espresso-700 px-6 py-3 font-bold text-cream-50 shadow-warm transition-all duration-300 hover:bg-espresso-600 active:scale-95;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-espresso-200 bg-cream-50/60 px-6 py-3 font-bold text-espresso-700 transition-all duration-300 hover:border-gold-300 hover:text-gold-600 active:scale-95;
+  }
+  .card-base {
+    @apply rounded-3xl bg-cream-50 shadow-warm ring-1 ring-espresso-100/60 transition-all duration-500;
+  }
+  .section-title {
+    @apply font-display text-3xl font-extrabold text-espresso-800 sm:text-4xl lg:text-5xl;
+  }
+  .input-base {
+    @apply w-full rounded-2xl border-2 border-espresso-100 bg-cream-50 px-4 py-2.5 text-sm text-espresso-800 outline-none transition placeholder:text-espresso-300 focus:border-gold-400 focus:ring-2 focus:ring-gold-300/40;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #A87B57;
+  border-radius: 9999px;
+  border: 2px solid #F5F0E8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7B5236;
+}
+
+/* Hide scrollbar for category bar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #receipt-print,
+  #receipt-print * {
+    visibility: visible;
+  }
+  #receipt-print {
+    position: fixed;
+    inset: 0 auto auto 0;
+    width: 80mm;
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+  }
+}
