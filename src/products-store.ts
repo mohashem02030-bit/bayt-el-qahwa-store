@@ -20,13 +20,17 @@ function notify() {
 }
 
 export async function refreshProducts(): Promise<string | null> {
-  const { data, error } = await supabase.from('product_overrides').select('id, data');
-  if (error) return error.message;
-  overrides = Object.fromEntries(
-    (data ?? []).map((row) => [row.id as string, { ...(row.data as Override), id: row.id as string }]),
-  );
-  notify();
-  return null;
+  try {
+    const { data, error } = await supabase.from('product_overrides').select('id, data');
+    if (error) return error.message;
+    overrides = Object.fromEntries(
+      (data ?? []).map((row) => [row.id as string, { ...(row.data as Override), id: row.id as string }]),
+    );
+    notify();
+    return null;
+  } catch (err) {
+    return err instanceof Error ? err.message : 'تعذر الاتصال بقاعدة البيانات';
+  }
 }
 
 export function useProductOverrides(): Overrides {
